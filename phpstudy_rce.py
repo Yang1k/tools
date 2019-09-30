@@ -55,7 +55,7 @@ if __name__ == "__main__":
         print('\033[1;32mThe vulnerability exists！ \033[0m')
         print("Type exit to exit the session......\n")
         while True:
-            payload = input("input code>")
+            payload = input("input php_code>")
             if payload in "exit":
                 print("Byebye!")
                 break
