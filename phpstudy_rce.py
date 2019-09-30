@@ -50,6 +50,9 @@ if __name__ == "__main__":
         "Accept-Language" : "zh-CN,zh;q=0.9",
         "Connection" : "close"
     }
+    if len(sys.argv) < 2:
+        print('\033[1;31mPlease enter the url！ \033[0m')
+        exit()
     url = sys.argv[1]
     if check(url,header):
         print('\033[1;32mThe vulnerability exists！ \033[0m')
