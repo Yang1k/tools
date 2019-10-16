@@ -1,6 +1,7 @@
 import requests
 import base64
 import sys
+import readline
 
 print(r"""
        _               _             _         _____   _____ ______ 
